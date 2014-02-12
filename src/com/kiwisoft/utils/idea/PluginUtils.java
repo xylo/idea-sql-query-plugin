@@ -214,10 +214,11 @@ public class PluginUtils
 
 	public static ClassLoader getProjectClassLoader(Project project)
 	{
-		if (project==null) PluginUtils.class.getClassLoader();
+		if (project==null) return PluginUtils.class.getClassLoader();
 		//noinspection deprecation
 		// todo: edited lines
 		Module[] modules = ModuleManager.getInstance(project).getModules();
+		if (modules.length == 0) return PluginUtils.class.getClassLoader();
 		ModuleRootManager mrm = ModuleRootManager.getInstance(modules[0]);
 		VirtualFile[] roots = mrm.orderEntries().classes().getRoots();
 		//VirtualFile[] roots=ProjectRootManager.getInstance(project).getFullClassPath();
