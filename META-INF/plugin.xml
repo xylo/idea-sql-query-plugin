@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+
+<!DOCTYPE idea-plugin PUBLIC "Plugin/DTD" "http://plugins.intellij.net/plugin.dtd">
+
+<idea-plugin url="http://java.sstiller.de/sql/index.html">
+	<name>SQL Query Plugin</name>
+	<description><![CDATA[<html>
+		<p>A tool for executing SQL statements through a JDBC connection.</p>
+		<p>Features:
+		<ul><li>Syntax highlighting
+			<li>Executing multiple statements at once
+			<li>Highlighting of primary and foreign keys
+			<li>Editing of results
+			<li>Support for easier configuration of common JDBC driver
+			<li>Support of different column formats (including custom formats)
+			<li>Browser for database structure
+			<li>Statement templates for often used statements
+			<li>Support for Java BLOB's
+			<li>Export into XML, HTML, CSV and Excel
+			<li>Data Load
+		</ul></p>
+	</html>]]></description>
+	<version>2.2.1</version>
+	<vendor email="stefan.stiller@net-linx.com" url="http://java.sstiller.de">KiwiSoft</vendor>
+	<change-notes><![CDATA[<html>
+		<b>Bugs</b>
+		<ul>
+		<li>[<a href='http://www.jetbrains.net/jira/browse/SQLQ-13'>SQLQ-13</a>] - Plugin not working on Mac</li>
+		<li>[<a href='http://www.jetbrains.net/jira/browse/SQLQ-15'>SQLQ-15</a>] - Editing of date columns doesn't work</li>
+		</ul>
+		<b>Cosmetics</b>
+		<ul>
+		<li>[<a href='http://www.jetbrains.net/jira/browse/SQLQ-4'>SQLQ-4</a>] - Output messages are sometimes in the wrong order</li>
+		</ul>
+		<b>New Features</b>
+		<ul>
+		<li>[<a href='http://www.jetbrains.net/jira/browse/SQLQ-1'>SQLQ-1</a>] - Import of data files</li>
+		<li>[<a href='http://www.jetbrains.net/jira/browse/SQLQ-6'>SQLQ-6</a>] - Add support for Microsoft SQLServer 2005 Driver</li>
+		<li>[<a href='http://www.jetbrains.net/jira/browse/SQLQ-16'>SQLQ-16</a>] - Allow relative dates for table date editors.</li>
+		<li>[<a href='http://www.jetbrains.net/jira/browse/SQLQ-17'>SQLQ-17</a>] - Add viewer for image BLOB's</li>
+		</ul>
+	</html>]]></change-notes>
+	<idea-version since-build="3436"/>
+	<application-components>
+		<component>
+			<implementation-class>com.kiwisoft.sqlPlugin.config.SQLPluginAppConfig</implementation-class>
+		</component>
+	</application-components>
+	<project-components>
+		<component>
+			<implementation-class>com.kiwisoft.sqlPlugin.config.SQLPluginProjectConfig</implementation-class>
+			<interface-class>com.kiwisoft.sqlPlugin.config.SQLPluginProjectConfig</interface-class>
+			<option name="workspace" value="true"/>
+		</component>
+		<component>
+			<implementation-class>com.kiwisoft.sqlPlugin.SQLPlugin</implementation-class>
+			<interface-class>com.kiwisoft.sqlPlugin.SQLPlugin</interface-class>
+		</component>
+	</project-components>
+	<actions>
+		<action id="SQLQueryPlugin.EditorAction" text="Send to _SQLPlugin"
+				class="com.kiwisoft.sqlPlugin.actions.EditorContextAction"
+				description="Send the selected text to the SQLPlugin"/>
+		<group id="SQLQueryPlugin.Actions">
+			<reference id="SQLQueryPlugin.EditorAction"/>
+			<add-to-group group-id="EditorPopupMenu" anchor="last"/>
+		</group>
+	</actions>
+	<helpset file="help.jar" path="/help.hs" />
+	<extensions xmlns="com.intellij">
+		<errorHandler implementation="com.kiwisoft.sqlPlugin.ErrorReporter"/>
+	</extensions>
+</idea-plugin>

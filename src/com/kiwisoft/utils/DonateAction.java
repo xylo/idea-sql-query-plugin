@@ -1,0 +1,37 @@
+package com.kiwisoft.utils;
+
+import com.intellij.ide.BrowserUtil;
+import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+
+import com.kiwisoft.utils.gui.IconManager;
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: Stefan1
+ * Date: 17.11.2006
+ * Time: 19:40:33
+ * To change this template use File | Settings | File Templates.
+ *
+ * @noinspection ComponentNotRegistered
+ */
+public class DonateAction extends AnAction
+{
+	public DonateAction()
+	{
+		super("Donate", "If you like this plugin and want me to continue working on it in my free time please donate a little bit!",
+			  IconManager.getIcon("/icons/donate.gif"));
+	}
+
+	public boolean displayTextInToolbar()
+	{
+		return true;
+	}
+
+	public void actionPerformed(AnActionEvent e)
+	{
+		BrowserUtil.launchBrowser("https://www.paypal.com/cgi-bin/webscr" +
+								  "?cmd="+StringUtils.encodeURL("_s-xclick")
+								  +"&encrypted="+StringUtils.encodeURL("-----BEGIN PKCS7-----MIIHRwYJKoZIhvcNAQcEoIIHODCCBzQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYA0sFbeOxfwNs1nPnTqTyCmnpGUtF+IyP8rR7RVGV/Hj5m+bU15cq8Z2LGTTTK7JTO0osF2g9MAPrhpa6Zf8XOTVp9Yt8cXBzMuuUIYjxWWXga4NgDGCiabtr3qgaaawhJhJSubInN7FO8AIjf3CVdG+YBsYvfmyx/aGV9fM5wIZDELMAkGBSsOAwIaBQAwgcQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIanvw0LkMZQSAgaAxe8baSNM0biIcRbtLMPmGsRZanMLjoevrp94RPCc8gmaB99zrZ0p1pKI4wADPQmdze/48T3zWpekmNfYU+CYkAl4mDSjXHym+CVVCrUVaMNF3M8Yalk+q6vbSehLE8GxP4wPrMSGuM1Xxu10A3+RpvK94TV+tEOqsJIG+Q7RJJlTOHm7bIRdOvRqBnNAuH0DLTFo/PtItdIf18gVkswrOoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMDYxMTA4MTc0NDU4WjAjBgkqhkiG9w0BCQQxFgQUhpadCrhGJTKiQeE34CZY4uygqd8wDQYJKoZIhvcNAQEBBQAEgYCgSXppTP6Y4GprOV5VqF3aYDaclYLCfkh5BMekpRfKck8NfWV1+nxB3NIJBgn9iYHnA4V6bLl6DtFhM5DU4AQ8uSDJJYvR5fi5rV5GF1O9d7qV0oKc0XqjiQWqynk2CIskqWXaspxR6DoKfzqE/+J1jj3QngO9IJUFEM8tYK14lg==-----END PKCS7-----"));
+	}
+}

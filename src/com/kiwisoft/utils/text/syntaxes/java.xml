@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+<!--
+Copyright (C) 2002-2003 Stefan Stiller
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+Author: Stefan Stiller
+Version: $Revision: 1.4 $, $Date: 2004/10/18 18:28:41 $
+-->
+
+<syntaxDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="syntax.xsd">
+	<syntaxRules ignoreCase="false" highlightDigits="true">
+		<blockComment id="comment1" begin="/*" end="*/"/>
+		<blockComment id="comment1" begin="/**" end="*/"/>
+		<lineComment id="comment1">//</lineComment>
+
+		<literal id="literal1" begin="'" end="'" noLineBreak="true"/>
+		<literal id="literal1" begin="&quot;" end="&quot;" noLineBreak="true"/>
+
+		<markPrevious id="label" end=":" lineStart="true" exclude="true"/>
+
+		<sequence id="whitespace"> </sequence>
+		<sequence id="whitespace">	</sequence>
+
+		<sequence id="void">(</sequence>
+		<sequence id="void">)</sequence>
+		<sequence id="void">.*</sequence>
+		<sequence id="void">.</sequence>
+		<sequence id="void">,</sequence>
+		<sequence id="void">;</sequence>
+		<sequence id="void">]</sequence>
+		<sequence id="void">[</sequence>
+		<sequence id="void">?</sequence>
+		<sequence id="void">:</sequence>
+
+		<sequence id="operator">=</sequence>
+		<sequence id="operator">!</sequence>
+		<sequence id="operator">&gt;</sequence>
+		<sequence id="operator">&lt;</sequence>
+		<sequence id="operator">&gt;=</sequence>
+		<sequence id="operator">&lt;=</sequence>
+		<sequence id="operator">+</sequence>
+		<sequence id="operator">-</sequence>
+		<sequence id="operator">/</sequence>
+		<sequence id="operator">*</sequence>
+		<sequence id="operator">%</sequence>
+		<sequence id="operator">&amp;</sequence>
+		<sequence id="operator">|</sequence>
+		<sequence id="operator">^</sequence>
+		<sequence id="operator">~</sequence>
+		<sequence id="operator">{</sequence>
+		<sequence id="operator">}</sequence>
+
+		<keyword id="keyword1">abstract</keyword>
+		<keyword id="keyword1">break</keyword>
+		<keyword id="keyword1">case</keyword>
+		<keyword id="keyword1">catch</keyword>
+		<keyword id="keyword1">continue</keyword>
+		<keyword id="keyword1">default</keyword>
+		<keyword id="keyword1">do</keyword>
+		<keyword id="keyword1">else</keyword>
+		<keyword id="keyword1">extends</keyword>
+		<keyword id="keyword1">final</keyword>
+		<keyword id="keyword1">finally</keyword>
+		<keyword id="keyword1">for</keyword>
+		<keyword id="keyword1">if</keyword>
+		<keyword id="keyword1">implements</keyword>
+		<keyword id="keyword1">instanceof</keyword>
+		<keyword id="keyword1">native</keyword>
+		<keyword id="keyword1">new</keyword>
+		<keyword id="keyword1">private</keyword>
+		<keyword id="keyword1">protected</keyword>
+		<keyword id="keyword1">public</keyword>
+		<keyword id="keyword1">return</keyword>
+		<keyword id="keyword1">static</keyword>
+		<keyword id="keyword1">switch</keyword>
+		<keyword id="keyword1">synchronized</keyword>
+		<keyword id="keyword1">throw</keyword>
+		<keyword id="keyword1">throws</keyword>
+		<keyword id="keyword1">transient</keyword>
+		<keyword id="keyword1">try</keyword>
+		<keyword id="keyword1">volatile</keyword>
+		<keyword id="keyword1">while</keyword>
+
+		<keyword id="keyword2">package</keyword>
+		<keyword id="keyword2">import</keyword>
+
+		<keyword id="keyword3">boolean</keyword>
+		<keyword id="keyword3">byte</keyword>
+		<keyword id="keyword3">char</keyword>
+		<keyword id="keyword3">class</keyword>
+		<keyword id="keyword3">double</keyword>
+		<keyword id="keyword3">float</keyword>
+		<keyword id="keyword3">int</keyword>
+		<keyword id="keyword3">interface</keyword>
+		<keyword id="keyword3">long</keyword>
+		<keyword id="keyword3">short</keyword>
+		<keyword id="keyword3">void</keyword>
+
+		<keyword id="literal2">false</keyword>
+		<keyword id="literal2">true</keyword>
+		<keyword id="literal2">super</keyword>
+		<keyword id="literal2">this</keyword>
+		<keyword id="literal2">null</keyword>
+
+		<keyword id="invalid">goto</keyword>
+		<keyword id="invalid">const</keyword>
+	</syntaxRules>
+</syntaxDefinition>

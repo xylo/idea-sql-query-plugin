@@ -1,0 +1,155 @@
+<?xml version="1.0" ?>
+<project name="SQLPlugin" default="build" basedir=".">
+
+	<property name="version" value="2.2"/>
+	<property name="idea.home" value="c:/java/intellij/5.1.1"/>
+	<property name="src.dir" value="${basedir}/src"/>
+	<property name="lib.dir" value="${basedir}/lib"/>
+	<property name="classes.dir" value="${basedir}/buildclasses"/>
+	<property name="help.dir" value="${basedir}/help"/>
+	<property name="help.jar" value="${basedir}/help.jar"/>
+	<property name="build.dir" value="${basedir}/build"/>
+	<property name="plugin" value="${basedir}/ks-sql.jar"/>
+	<property name="package" value="${basedir}/builds/ks-sql_${version}.zip"/>
+	<property name="package.src" value="${basedir}/builds/ks-sql_${version}_src.zip"/>
+
+	<path id="classpath">
+		<fileset dir="${idea.home}/lib">
+			<include name="openapi.jar"/>
+			<include name="jdom.jar"/>
+			<include name="junit.jar"/>
+			<include name="jh.jar"/>
+			<include name="velocity.jar"/>
+			<include name="xerces.jar"/>
+			<include name="extensions.jar"/>
+			<include name="log4j.jar"/>
+		</fileset>
+		<fileset dir="${lib.dir}">
+			<include name="ks*.jar"/>
+			<include name="bsh.jar"/>
+			<include name="poi.jar"/>
+			<exclude name="*src.jar"/>
+		</fileset>
+	</path>
+
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+		<delete dir="${classes.dir}"/>
+	</target>
+
+	<target name="init">
+		<propertyfile file="${src.dir}/com/kiwisoft/sqlPlugin/Build.properties">
+			<entry key="version" value="${version}"/>
+			<entry key="built.date" type="date" value="now" pattern="d-M-yyyy"/>
+			<entry key="build.number" type="int" operation="+" value="1" default="0" />
+		</propertyfile>
+		<property file="${src.dir}/com/kiwisoft/sqlPlugin/Build.properties"/>
+	</target>
+
+	<target name="compile">
+		<mkdir dir="${classes.dir}"/>
+		<javac classpathref="classpath" srcdir="${src.dir}" destdir="${classes.dir}" source="1.4" deprecation="off" debug="on"/>
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.dir}">
+				<include name="**/*.xml"/>
+				<include name="**/*.gif"/>
+				<include name="**/*.jpg"/>
+				<include name="**/*.png"/>
+				<include name="**/*.properties"/>
+			</fileset>
+		</copy>
+		<copy todir="${classes.dir}/META-INF">
+			<fileset dir="${basedir}/META-INF">
+				<include name="plugin.xml"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="jar" depends="clean, init, compile">
+		<delete file="${plugin}"/>
+		<jar jarfile="${plugin}" basedir="${classes.dir}" update="off">
+			<include name="**/*.*"/>
+			<manifest>
+				<attribute name="Built-By" value="KiwiSoft"/>
+				<attribute name="Built-Date" value="${built.date}"/>
+				<attribute name="Build-Number" value="${build.number}"/>
+				<section name="common">
+					<attribute name="Implementation-Title" value="SQLPlugin"/>
+					<attribute name="Implementation-Version" value="${version}"/>
+					<attribute name="Implementation-Vendor" value="KiwiSoft"/>
+				</section>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="help.jar">
+		<delete file="${help.jar}"/>
+		<jar jarfile="${help.jar}" basedir="${help.dir}" update="off">
+			<include name="**/*.*"/>
+		</jar>
+	</target>
+
+	<target name="help.deploy" depends="help.jar">
+		<copy file="${help.jar}" todir="${idea.home}/sandbox/plugins/sql/help"/>
+		<jar jarfile="${help.jar}" basedir="${help.dir}" update="off">
+			<include name="**/*.*"/>
+		</jar>
+	</target>
+
+	<target name="javadoc">
+		<javadoc source="1.4" classpathref="classpath" destdir="docs/api" author="true" version="true" use="true" windowtitle="SQLPlugin API">
+			<packageset dir="src" defaultexcludes="yes">
+				<include name="com/kiwisoft/**"/>
+			</packageset>
+			<packageset dir="../utils/src" defaultexcludes="yes">
+				<include name="com/kiwisoft/**"/>
+			</packageset>
+			<link href="http://java.sun.com/j2se/1.4.2/docs/api"/>
+			<link href="http://xml.apache.org/xerces2-j/javadocs/xerces2"/>
+		</javadoc>
+	</target>
+
+	<target name="build" depends="jar, help.jar">
+		<mkdir dir="${build.dir}"/>
+		<copy file="${plugin}" todir="${build.dir}/ks-sql/lib"/>
+		<copy todir="${build.dir}/ks-sql/lib">
+			<fileset dir="${lib.dir}">
+				<include name="ks*.jar"/>
+				<include name="bsh.jar"/>
+				<exclude name="*src.jar"/>
+			</fileset>
+		</copy>
+		<copy file="${help.jar}" todir="${build.dir}/ks-sql/help"/>
+		<copy file="${basedir}/license.txt" todir="${build.dir}/ks-sql"/>
+		<copy file="${basedir}/formats.properties" todir="${build.dir}/ks-sql"/>
+		<zip zipfile="${package}">
+			<fileset dir="${build.dir}"/>
+		</zip>
+		<delete dir="${build.dir}"/>
+		<delete dir="${classes.dir}"/>
+
+		<zip zipfile="${package.src}">
+			<fileset dir="${basedir}">
+				<include name="src/**"/>
+				<include name="META-INF/plugin.xml"/>
+				<include name="build.xml"/>
+				<include name="license.txt"/>
+				<include name="lib/*src.jar"/>
+				<exclude name="**/*.ppf"/>
+				<exclude name="**/Thumbs.db"/>
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="deploy">
+		<copy file="${plugin}" todir="${idea.home}/config/plugins/ks-sql/lib"/>
+		<copy todir="${idea.home}/config/plugins/ks-sql/lib">
+			<fileset dir="${lib.dir}">
+				<include name="ks*.jar"/>
+				<include name="bsh.jar"/>
+				<exclude name="*src.jar"/>
+			</fileset>
+		</copy>
+	</target>
+
+</project>

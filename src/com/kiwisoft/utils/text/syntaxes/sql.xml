@@ -1,0 +1,395 @@
+<?xml version="1.0"?>
+
+<!--
+Copyright (C) 2002-2003 Stefan Stiller
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+Author: Stefan Stiller
+Version: $Revision: 1.2 $, $Date: 2004/10/18 18:37:49 $
+-->
+
+<syntaxDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="syntax.xsd">
+	<syntaxRules ignoreCase="true" highlightDigits="true">
+		<blockComment id="comment1" begin="/*" end="*/"/>
+		<lineComment id="comment1">--</lineComment>
+
+		<literal id="literal1" begin="'" end="'"/>
+		<literal id="literal1" noLineBreak="true" begin="[" end="]"/>
+
+		<markFollowing id="literal2" begin="@"/>
+		<markFollowing id="literal3" begin="$"/>
+		<markPrevious id="label" end=":" lineStart="true"/>
+
+		<sequence id="whitespace"> </sequence>
+		<sequence id="whitespace">	</sequence>
+
+		<sequence id="operator">+</sequence>
+		<sequence id="operator">-</sequence>
+		<sequence id="operator">/</sequence>
+		<sequence id="operator">*</sequence>
+		<sequence id="operator">=</sequence>
+		<sequence id="operator">&gt;</sequence>
+		<sequence id="operator">&lt;</sequence>
+		<sequence id="operator">%</sequence>
+		<sequence id="operator">&amp;</sequence>
+		<sequence id="operator">|</sequence>
+		<sequence id="operator">^</sequence>
+		<sequence id="operator">~</sequence>
+		<sequence id="operator">!=</sequence>
+		<sequence id="operator">!&gt;</sequence>
+		<sequence id="operator">!&lt;</sequence>
+		<sequence id="operator">:=</sequence>
+
+		<sequence id="void">:</sequence>
+		<sequence id="void">.</sequence>
+		<sequence id="void">,</sequence>
+		<sequence id="void">;</sequence>
+		<sequence id="void">)</sequence>
+		<sequence id="void">(</sequence>
+
+		<keyword id="keyword1">ABORT</keyword>
+		<keyword id="keyword1">ACCESS</keyword>
+		<keyword id="keyword1">ADD</keyword>
+		<keyword id="keyword1">ALTER</keyword>
+		<keyword id="keyword1">ARRAY</keyword>
+		<keyword id="keyword1">ARRAY_LEN</keyword>
+		<keyword id="keyword1">AS</keyword>
+		<keyword id="keyword1">ASC</keyword>
+		<keyword id="keyword1">ASSERT</keyword>
+		<keyword id="keyword1">ASSIGN</keyword>
+		<keyword id="keyword1">AT</keyword>
+		<keyword id="keyword1">AUDIT</keyword>
+		<keyword id="keyword1">AUTHORIZATION</keyword>
+		<keyword id="keyword1">AVG</keyword>
+		<keyword id="keyword1">BASE_TABLE</keyword>
+		<keyword id="keyword1">BEGIN</keyword>
+		<keyword id="keyword1">BINARY_INTEGER</keyword>
+		<keyword id="keyword1">BODY</keyword>
+		<keyword id="keyword1">CASE</keyword>
+		<keyword id="keyword1">CHAR</keyword>
+		<keyword id="keyword1">CHAR_BASE</keyword>
+		<keyword id="keyword1">CHECK</keyword>
+		<keyword id="keyword1">CLOSE</keyword>
+		<keyword id="keyword1">CLUSTER</keyword>
+		<keyword id="keyword1">CLUSTERS</keyword>
+		<keyword id="keyword1">COLAUTH</keyword>
+		<keyword id="keyword1">COLUMN</keyword>
+		<keyword id="keyword1">COMMENT</keyword>
+		<keyword id="keyword1">COMMIT</keyword>
+		<keyword id="keyword1">COMPILE</keyword>
+		<keyword id="keyword1">COMPRESS</keyword>
+		<keyword id="keyword1">CONSTANT</keyword>
+		<keyword id="keyword1">CONSTRAINT</keyword>
+		<keyword id="keyword1">COUNT</keyword>
+		<keyword id="keyword1">CREATE</keyword>
+		<keyword id="keyword1">CURRENT</keyword>
+		<keyword id="keyword1">CURRVAL</keyword>
+		<keyword id="keyword1">CURSOR</keyword>
+		<keyword id="keyword1">DATABASE</keyword>
+		<keyword id="keyword1">DATA_BASE</keyword>
+		<keyword id="keyword1">DATE</keyword>
+		<keyword id="keyword1">DBA</keyword>
+		<keyword id="keyword1">DEBUGOFF</keyword>
+		<keyword id="keyword1">DEBUGON</keyword>
+		<keyword id="keyword1">DECLARE</keyword>
+		<keyword id="keyword1">DEFAULT</keyword>
+		<keyword id="keyword1">DEFINITION</keyword>
+		<keyword id="keyword1">DELAY</keyword>
+		<keyword id="keyword1">DELETE</keyword>
+		<keyword id="keyword1">DESC</keyword>
+		<keyword id="keyword1">DIGITS</keyword>
+		<keyword id="keyword1">DISPOSE</keyword>
+		<keyword id="keyword1">DISTINCT</keyword>
+		<keyword id="keyword1">DO</keyword>
+		<keyword id="keyword1">DROP</keyword>
+		<keyword id="keyword1">DUMP</keyword>
+		<keyword id="keyword1">ELSE</keyword>
+		<keyword id="keyword1">ELSIF</keyword>
+		<keyword id="keyword1">END</keyword>
+		<keyword id="keyword1">ENTRY</keyword>
+		<keyword id="keyword1">EXCEPTION</keyword>
+		<keyword id="keyword1">EXCEPTION_INIT</keyword>
+		<keyword id="keyword1">EXCLUSIVE</keyword>
+		<keyword id="keyword1">EXIT</keyword>
+		<keyword id="keyword1">FALSE</keyword>
+		<keyword id="keyword1">FETCH</keyword>
+		<keyword id="keyword1">FILE</keyword>
+		<keyword id="keyword1">FOR</keyword>
+		<keyword id="keyword1">FORM</keyword>
+		<keyword id="keyword1">FROM</keyword>
+		<keyword id="keyword1">FUNCTION</keyword>
+		<keyword id="keyword1">GENERIC</keyword>
+		<keyword id="keyword1">GOTO</keyword>
+		<keyword id="keyword1">GRANT</keyword>
+		<keyword id="keyword1">GREATEST</keyword>
+		<keyword id="keyword1">GROUP</keyword>
+		<keyword id="keyword1">HAVING</keyword>
+		<keyword id="keyword1">IDENTIFIED</keyword>
+		<keyword id="keyword1">IDENTITYCOL</keyword>
+		<keyword id="keyword1">IF</keyword>
+		<keyword id="keyword1">IMMEDIATE</keyword>
+		<keyword id="keyword1">INCREMENT</keyword>
+		<keyword id="keyword1">INDEX</keyword>
+		<keyword id="keyword1">INDEXES</keyword>
+		<keyword id="keyword1">INDICATOR</keyword>
+		<keyword id="keyword1">INITIAL</keyword>
+		<keyword id="keyword1">INSERT</keyword>
+		<keyword id="keyword1">INTERFACE</keyword>
+		<keyword id="keyword1">INTO</keyword>
+		<keyword id="keyword1">IS</keyword>
+		<keyword id="keyword1">LEAST</keyword>
+		<keyword id="keyword1">LEVEL</keyword>
+		<keyword id="keyword1">LIMITED</keyword>
+		<keyword id="keyword1">LOCK</keyword>
+		<keyword id="keyword1">LONG</keyword>
+		<keyword id="keyword1">LOOP</keyword>
+		<keyword id="keyword1">MAX</keyword>
+		<keyword id="keyword1">MAXEXTENTS</keyword>
+		<keyword id="keyword1">MIN</keyword>
+		<keyword id="keyword1">MINUS</keyword>
+		<keyword id="keyword1">MLSLABEL</keyword>
+		<keyword id="keyword1">MOD</keyword>
+		<keyword id="keyword1">MODIFY</keyword>
+		<keyword id="keyword1">MORE</keyword>
+		<keyword id="keyword1">NATURAL</keyword>
+		<keyword id="keyword1">NATURALN</keyword>
+		<keyword id="keyword1">NEW</keyword>
+		<keyword id="keyword1">NEXTVAL</keyword>
+		<keyword id="keyword1">NOAUDIT</keyword>
+		<keyword id="keyword1">NOCOMPRESS</keyword>
+		<keyword id="keyword1">NOWAIT</keyword>
+		<keyword id="keyword1">NULL</keyword>
+		<keyword id="keyword1">NUMBER</keyword>
+		<keyword id="keyword1">NUMBER_BASE</keyword>
+		<keyword id="keyword1">OF</keyword>
+		<keyword id="keyword1">OFFLINE</keyword>
+		<keyword id="keyword1">ON</keyword>
+		<keyword id="keyword1">OFF</keyword>
+		<keyword id="keyword1">ONLINE</keyword>
+		<keyword id="keyword1">OPEN</keyword>
+		<keyword id="keyword1">OPTION</keyword>
+		<keyword id="keyword1">ORDER</keyword>
+		<keyword id="keyword1">OTHERS</keyword>
+		<keyword id="keyword1">OUT</keyword>
+		<keyword id="keyword1">PACKAGE</keyword>
+		<keyword id="keyword1">PARTITION</keyword>
+		<keyword id="keyword1">PCTFREE</keyword>
+		<keyword id="keyword1">POSITIVE</keyword>
+		<keyword id="keyword1">POSITIVEN</keyword>
+		<keyword id="keyword1">PRAGMA</keyword>
+		<keyword id="keyword1">PRIVATE</keyword>
+		<keyword id="keyword1">PRIVILEGES</keyword>
+		<keyword id="keyword1">PROCEDURE</keyword>
+		<keyword id="keyword1">PUBLIC</keyword>
+		<keyword id="keyword1">QUOTED_IDENTIFIER</keyword>
+		<keyword id="keyword1">RAISE</keyword>
+		<keyword id="keyword1">RANGE</keyword>
+		<keyword id="keyword1">RAW</keyword>
+		<keyword id="keyword1">RECORD</keyword>
+		<keyword id="keyword1">REF</keyword>
+		<keyword id="keyword1">RELEASE</keyword>
+		<keyword id="keyword1">REMR</keyword>
+		<keyword id="keyword1">RENAME</keyword>
+		<keyword id="keyword1">RESOURCE</keyword>
+		<keyword id="keyword1">RETURN</keyword>
+		<keyword id="keyword1">REVERSE</keyword>
+		<keyword id="keyword1">REVOKE</keyword>
+		<keyword id="keyword1">ROLLBACK</keyword>
+		<keyword id="keyword1">ROW</keyword>
+		<keyword id="keyword1">ROWID</keyword>
+		<keyword id="keyword1">ROWLABEL</keyword>
+		<keyword id="keyword1">ROWNUM</keyword>
+		<keyword id="keyword1">ROWS</keyword>
+		<keyword id="keyword1">ROWTYPE</keyword>
+		<keyword id="keyword1">RUN</keyword>
+		<keyword id="keyword1">SAVEPOINT</keyword>
+		<keyword id="keyword1">SCHEMA</keyword>
+		<keyword id="keyword1">SELECT</keyword>
+		<keyword id="keyword1">SEPERATE</keyword>
+		<keyword id="keyword1">SESSION</keyword>
+		<keyword id="keyword1">SET</keyword>
+		<keyword id="keyword1">SHARE</keyword>
+		<keyword id="keyword1">SIGNTYPE</keyword>
+		<keyword id="keyword1">SPACE</keyword>
+		<keyword id="keyword1">SQL</keyword>
+		<keyword id="keyword1">SQLCODE</keyword>
+		<keyword id="keyword1">SQLERRM</keyword>
+		<keyword id="keyword1">STATEMENT</keyword>
+		<keyword id="keyword1">STDDEV</keyword>
+		<keyword id="keyword1">SUBTYPE</keyword>
+		<keyword id="keyword1">SUCCESSFULL</keyword>
+		<keyword id="keyword1">SUM</keyword>
+		<keyword id="keyword1">SYNONYM</keyword>
+		<keyword id="keyword1">SYSDATE</keyword>
+		<keyword id="keyword1">TABAUTH</keyword>
+		<keyword id="keyword1">TABLE</keyword>
+		<keyword id="keyword1">TABLES</keyword>
+		<keyword id="keyword1">TASK</keyword>
+		<keyword id="keyword1">TERMINATE</keyword>
+		<keyword id="keyword1">TRUNCATE</keyword>
+		<keyword id="keyword1">THEN</keyword>
+		<keyword id="keyword1">TO</keyword>
+		<keyword id="keyword1">TRIGGER</keyword>
+		<keyword id="keyword1">TRUE</keyword>
+		<keyword id="keyword1">TYPE</keyword>
+		<keyword id="keyword1">UID</keyword>
+		<keyword id="keyword1">UNION</keyword>
+		<keyword id="keyword1">UNIQUE</keyword>
+		<keyword id="keyword1">UPDATE</keyword>
+		<keyword id="keyword1">UPDATETEXT</keyword>
+		<keyword id="keyword1">USE</keyword>
+		<keyword id="keyword1">USER</keyword>
+		<keyword id="keyword1">USING</keyword>
+		<keyword id="keyword1">VALIDATE</keyword>
+		<keyword id="keyword1">VALUES</keyword>
+		<keyword id="keyword1">VARIANCE</keyword>
+		<keyword id="keyword1">VIEW</keyword>
+		<keyword id="keyword1">VIEWS</keyword>
+		<keyword id="keyword1">WHEN</keyword>
+		<keyword id="keyword1">WHENEVER</keyword>
+		<keyword id="keyword1">WHERE</keyword>
+		<keyword id="keyword1">WHILE</keyword>
+		<keyword id="keyword1">WITH</keyword>
+		<keyword id="keyword1">WORK</keyword>
+		<keyword id="keyword1">WRITE</keyword>
+		<keyword id="keyword1">XOR</keyword>
+
+		<!-- data types -->
+		<keyword id="keyword1">binary</keyword>
+		<keyword id="keyword1">bit</keyword>
+		<keyword id="keyword1">blob</keyword>
+		<keyword id="keyword1">boolean</keyword>
+		<keyword id="keyword1">char</keyword>
+		<keyword id="keyword1">character</keyword>
+		<keyword id="keyword1">datetime</keyword>
+		<keyword id="keyword1">decimal</keyword>
+		<keyword id="keyword1">float</keyword>
+		<keyword id="keyword1">image</keyword>
+		<keyword id="keyword1">int</keyword>
+		<keyword id="keyword1">integer</keyword>
+		<keyword id="keyword1">money</keyword>
+		<keyword id="keyword1">name</keyword>
+		<keyword id="keyword1">numeric</keyword>
+		<keyword id="keyword1">nchar</keyword>
+		<keyword id="keyword1">nvarchar</keyword>
+		<keyword id="keyword1">ntext</keyword>
+		<keyword id="keyword1">pls_integer</keyword>
+		<keyword id="keyword1">real</keyword>
+		<keyword id="keyword1">smalldatetime</keyword>
+		<keyword id="keyword1">smallint</keyword>
+		<keyword id="keyword1">smallmoney</keyword>
+		<keyword id="keyword1">text</keyword>
+		<keyword id="keyword1">timestamp</keyword>
+		<keyword id="keyword1">tinyint</keyword>
+		<keyword id="keyword1">uniqueidentifier</keyword>
+		<keyword id="keyword1">varbinary</keyword>
+		<keyword id="keyword1">varchar</keyword>
+		<keyword id="keyword1">varchar2</keyword>
+
+		<!-- system functions -->
+		<keyword id="keyword2">ABS</keyword>
+		<keyword id="keyword2">ACOS</keyword>
+		<keyword id="keyword2">ADD_MONTHS</keyword>
+		<keyword id="keyword2">ASCII</keyword>
+		<keyword id="keyword2">ASIN</keyword>
+		<keyword id="keyword2">ATAN</keyword>
+		<keyword id="keyword2">ATAN2</keyword>
+		<keyword id="keyword2">CEIL</keyword>
+		<keyword id="keyword2">CHARTOROWID</keyword>
+		<keyword id="keyword2">CHR</keyword>
+		<keyword id="keyword2">CONCAT</keyword>
+		<keyword id="keyword2">CONVERT</keyword>
+		<keyword id="keyword2">COS</keyword>
+		<keyword id="keyword2">COSH</keyword>
+		<keyword id="keyword2">DECODE</keyword>
+		<keyword id="keyword2">DEFINE</keyword>
+		<keyword id="keyword2">FLOOR</keyword>
+		<keyword id="keyword2">HEXTORAW</keyword>
+		<keyword id="keyword2">INITCAP</keyword>
+		<keyword id="keyword2">INSTR</keyword>
+		<keyword id="keyword2">INSTRB</keyword>
+		<keyword id="keyword2">LAST_DAY</keyword>
+		<keyword id="keyword2">LENGTH</keyword>
+		<keyword id="keyword2">LENGTHB</keyword>
+		<keyword id="keyword2">LN</keyword>
+		<keyword id="keyword2">LOG</keyword>
+		<keyword id="keyword2">LOWER</keyword>
+		<keyword id="keyword2">LPAD</keyword>
+		<keyword id="keyword2">LTRIM</keyword>
+		<keyword id="keyword2">MOD</keyword>
+		<keyword id="keyword2">MONTHS_BETWEEN</keyword>
+		<keyword id="keyword2">NEW_TIME</keyword>
+		<keyword id="keyword2">NEXT_DAY</keyword>
+		<keyword id="keyword2">NLSSORT</keyword>
+		<keyword id="keyword2">NSL_INITCAP</keyword>
+		<keyword id="keyword2">NLS_LOWER</keyword>
+		<keyword id="keyword2">NLS_UPPER</keyword>
+		<keyword id="keyword2">NVL</keyword>
+		<keyword id="keyword2">POWER</keyword>
+		<keyword id="keyword2">RAWTOHEX</keyword>
+		<keyword id="keyword2">REPLACE</keyword>
+		<keyword id="keyword2">ROUND</keyword>
+		<keyword id="keyword2">ROWIDTOCHAR</keyword>
+		<keyword id="keyword2">RPAD</keyword>
+		<keyword id="keyword2">RTRIM</keyword>
+		<keyword id="keyword2">SIGN</keyword>
+		<keyword id="keyword2">SOUNDEX</keyword>
+		<keyword id="keyword2">SIN</keyword>
+		<keyword id="keyword2">SINH</keyword>
+		<keyword id="keyword2">SQRT</keyword>
+		<keyword id="keyword2">SUBSTR</keyword>
+		<keyword id="keyword2">SUBSTRB</keyword>
+		<keyword id="keyword2">TAN</keyword>
+		<keyword id="keyword2">TANH</keyword>
+		<keyword id="keyword2">TO_CHAR</keyword>
+		<keyword id="keyword2">TO_DATE</keyword>
+		<keyword id="keyword2">TO_MULTIBYTE</keyword>
+		<keyword id="keyword2">TO_NUMBER</keyword>
+		<keyword id="keyword2">TO_SINGLE_BYTE</keyword>
+		<keyword id="keyword2">TRANSLATE</keyword>
+		<keyword id="keyword2">TRUNC</keyword>
+		<keyword id="keyword2">UPPER</keyword>
+
+		<!-- operators -->
+		<keyword id="keyword1">ALL</keyword>
+		<keyword id="keyword1">AND</keyword>
+		<keyword id="keyword1">ANY</keyword>
+		<keyword id="keyword1">BETWEEN</keyword>
+		<keyword id="keyword1">BY</keyword>
+		<keyword id="keyword1">CONNECT</keyword>
+		<keyword id="keyword1">EXISTS</keyword>
+		<keyword id="keyword1">IN</keyword>
+		<keyword id="keyword1">INTERSECT</keyword>
+		<keyword id="keyword1">LIKE</keyword>
+		<keyword id="keyword1">NOT</keyword>
+		<keyword id="keyword1">NULL</keyword>
+		<keyword id="keyword1">OR</keyword>
+		<keyword id="keyword1">START</keyword>
+		<keyword id="keyword1">UNION</keyword>
+		<keyword id="keyword1">WITH</keyword>
+
+		<!-- other keywords (output-related) -->
+		<keyword id="keyword3">VERIFY</keyword>
+		<keyword id="keyword3">SERVEROUTPUT</keyword>
+		<keyword id="keyword3">PAGESIZE</keyword>
+		<keyword id="keyword3">LINESIZE</keyword>
+		<keyword id="keyword3">ARRAYSIZE</keyword>
+		<keyword id="keyword3">DBMS_OUTPUT</keyword>
+		<keyword id="keyword3">PUT_LINE</keyword>
+		<keyword id="keyword3">ENABLE</keyword>
+		<keyword id="keyword3">DESCRIBE</keyword>
+	</syntaxRules>
+</syntaxDefinition>
