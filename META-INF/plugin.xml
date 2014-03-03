@@ -40,7 +40,7 @@
 		<li>[<a href='http://www.jetbrains.net/jira/browse/SQLQ-17'>SQLQ-17</a>] - Add viewer for image BLOB's</li>
 		</ul>
 	</html>]]></change-notes>
-	<idea-version since-build="3436"/>
+	<idea-version since-build="123.72"/>
 	<application-components>
 		<component>
 			<implementation-class>com.kiwisoft.sqlPlugin.config.SQLPluginAppConfig</implementation-class>
